@@ -1,6 +1,7 @@
 # encoding: utf-8
 require "logstash/codecs/base"
 require "logstash/codecs/spool"
+require "logstash/json"
 
 # This is the base class for logstash codecs.
 class LogStash::Codecs::CloudTrail < LogStash::Codecs::Spool
@@ -9,7 +10,7 @@ class LogStash::Codecs::CloudTrail < LogStash::Codecs::Spool
 
   public
   def decode(data)
-    super(JSON.parse(data.force_encoding("UTF-8"))['Records']) do |event|
+    super(LogStash::Json.load(data.force_encoding("UTF-8"))['Records']) do |event|
       event['@timestamp'] = event.delete('eventTime')
       yield LogStash::Event.new(event)
     end
