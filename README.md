@@ -1,7 +1,6 @@
 # Logstash Plugin
 
-[![Build
-Status](http://build-eu-00.elastic.co/view/LS%20Plugins/view/LS%20Codecs/job/logstash-plugin-codec-cloudtrail-unit/badge/icon)](http://build-eu-00.elastic.co/view/LS%20Plugins/view/LS%20Codecs/job/logstash-plugin-codec-cloudtrail-unit/)
+[![Travis Build Status](https://travis-ci.org/logstash-plugins/logstash-codec-cloudtrail.svg)](https://travis-ci.org/logstash-plugins/logstash-codec-cloudtrail)
 
 This is a plugin for [Logstash](https://github.com/elastic/logstash).
 
