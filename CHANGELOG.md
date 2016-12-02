@@ -1,4 +1,4 @@
-# 2.0.5
+# 3.0.1
   - fixed mapping template for requestParameters.disableApiTermination field
 # 2.0.4
   - Depend on logstash-core-plugin-api instead of logstash-core, removing the need to mass update plugins on major releases of logstash
