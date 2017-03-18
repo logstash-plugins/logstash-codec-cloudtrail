@@ -1,3 +1,6 @@
+# 3.0.1
+  - fixed mapping template for requestParameters.disableApiTermination field
+
 ## 3.0.0
   - Update to support Logstash 2.4 & 5.0 APIs
   
