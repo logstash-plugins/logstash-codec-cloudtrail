@@ -1,3 +1,6 @@
+## 3.0.3
+  - Fix some documentation issues
+
 # 3.0.1
   - fixed mapping template for requestParameters.disableApiTermination field
 
