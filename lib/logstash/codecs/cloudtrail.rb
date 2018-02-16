@@ -18,9 +18,7 @@ class LogStash::Codecs::CloudTrail < LogStash::Codecs::Base
   public
   def decode(data)
     decoded = LogStash::Json.load(@converter.convert(data))
-
-    return unless decoded['Records']
-    decoded['Records'].each do |event|
+    decoded['Records'].to_a.each do |event|
       event['@timestamp'] = event.delete('eventTime')
 
       if event["requestParameters"] && event['requestParameters'].has_key?("disableApiTermination")
