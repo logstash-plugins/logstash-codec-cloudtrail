@@ -1,3 +1,6 @@
+## 3.0.4
+  - Don't crash when data doesn't contain some particular elements
+
 ## 3.0.3
   - Fix some documentation issues
 
