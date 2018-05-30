@@ -28,8 +28,19 @@ class LogStash::Codecs::CloudTrail < LogStash::Codecs::Base
         end
       end
 
+      substitute_invalid_ip_address(event)
+
       yield LogStash::Event.new(event)
     end
   end # def decode
+
+  # Workaround for https://github.com/logstash-plugins/logstash-codec-cloudtrail/issues/20
+  # API calls from support will fill the sourceIpAddress with a hostname string instead of an ip
+  # address.
+  def substitute_invalid_ip_address(event)
+    if event["sourceIpAddress"] && event["sourceIpAddress"] !~ /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
+      event["sourceHost"] = event.delete("sourceIpAddress")
+    end
+  end
 
 end # class LogStash::Codecs::CloudTrail
