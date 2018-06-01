@@ -1,3 +1,6 @@
+## 3.0.5
+  - [#22](https://github.com/logstash-plugins/logstash-codec-cloudtrail/pull/22)Handle 'sourceIpAddress' fields with non-ip address content by moving them to 'sourceHost' field
+
 ## 3.0.4
   - Don't crash when data doesn't contain some particular elements
 
