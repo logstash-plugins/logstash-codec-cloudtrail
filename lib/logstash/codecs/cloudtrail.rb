@@ -38,7 +38,8 @@ class LogStash::Codecs::CloudTrail < LogStash::Codecs::Base
   # API calls from support will fill the sourceIpAddress with a hostname string instead of an ip
   # address.
   def substitute_invalid_ip_address(event)
-    if event["sourceIpAddress"] && event["sourceIpAddress"] !~ /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
+    source_ip_address = event["sourceIpAddress"]
+    if source_ip_address && source_ip_address !~ Resolv::IPv4::Regex && source_ip_address !~ Resolv::IPv6::Regex
       event["sourceHost"] = event.delete("sourceIpAddress")
     end
   end
